@@ -1,0 +1,181 @@
+# Ackee Samr21 Programming
+# ---------------------------------------
+ackee.name=AckeeSamr21 (Programming USB Port)
+ackee.vid.0=0x2341
+ackee.pid.0=0x804d
+ackee.vid.1=0x2341
+ackee.pid.1=0x004d
+
+ackee.vid.2=0x2341
+ackee.pid.2=0x824d
+# If the board is a 2341:824d use 2341:824d for build and set other parameters as well
+ackee.vid.2.build.vid=0x2341
+ackee.vid.2.build.pid=0x824d
+ackee.vid.2.build.usb_product="Zquid"
+ackee.vid.2.bootloader.file=zero/samd21_sam_ba_genuino.bin
+ackee.vid.3=0x2341
+ackee.pid.3=0x024d
+# If the board is a 2341:024d use 2341:824d for build and set other parameters as well
+ackee.vid.3.build.vid=0x2341
+ackee.vid.3.build.pid=0x824d
+ackee.vid.3.build.usb_product="Zquid"
+ackee.vid.3.bootloader.file=zero/samd21_sam_ba_genuino.bin
+ackee.upload.tool=arduino:openocd
+ackee.upload.protocol=swd
+ackee.upload.maximum_size=262144
+ackee.upload.use_1200bps_touch=false
+ackee.upload.wait_for_upload_port=false
+ackee.upload.native_usb=false
+ackee.build.mcu=cortex-m0plus
+ackee.build.f_cpu=48000000L
+ackee.build.usb_product="Zquid"
+ackee.build.usb_manufacturer="Qxperts LLC"
+ackee.build.board=SAMD_ZERO
+ackee.build.core=arduino
+ackee.build.extra_flags=-DCRYSTALLESS -D__SAMR21G18A__ {build.usb_flags}
+ackee.build.ldscript=linker_scripts/gcc/flash_without_bootloader.ld
+ackee.build.openocdscript=openocd_scripts/arduino_zero.cfg
+ackee.build.variant=ackee
+ackee.build.variant_system_lib=
+ackee.build.vid=0x2341
+ackee.build.pid=0x804d
+ackee.bootloader.tool=openocd
+ackee.bootloader.file=zero/samd21_sam_ba.bin
+
+# Ackee Samr30 Programming
+# ---------------------------------------
+ackeeR30.name=AckeeSamr30(Programming USB Port)
+ackeeR30.vid.0=0x2341
+ackeeR30.pid.0=0x804d
+ackeeR30.vid.1=0x2341
+ackeeR30.pid.1=0x004d
+
+ackeeR30.vid.2=0x2341
+ackeeR30.pid.2=0x824d
+# If the board is a 2341:824d use 2341:824d for build and set other parameters as well
+ackeeR30.vid.2.build.vid=0x2341
+ackeeR30.vid.2.build.pid=0x824d
+ackeeR30.vid.2.build.usb_product="Zquid"
+ackeeR30.vid.2.bootloader.file=zero/samd21_sam_ba_genuino.bin
+ackeeR30.vid.3=0x2341
+ackeeR30.pid.3=0x024d
+# If the board is a 2341:024d use 2341:824d for build and set other parameters as well
+ackeeR30.vid.3.build.vid=0x2341
+ackeeR30.vid.3.build.pid=0x824d
+ackeeR30.vid.3.build.usb_product="Zquid"
+ackeeR30.vid.3.bootloader.file=zero/samd21_sam_ba_genuino.bin
+ackeeR30.upload.tool=arduino:openocd
+ackeeR30.upload.protocol=swd
+ackeeR30.upload.maximum_size=262144
+ackeeR30.upload.use_1200bps_touch=false
+ackeeR30.upload.wait_for_upload_port=false
+ackeeR30.upload.native_usb=false
+ackeeR30.build.mcu=cortex-m0plus
+ackeeR30.build.f_cpu=48000000L
+ackeeR30.build.usb_product="Zquid"
+ackeeR30.build.usb_manufacturer="Qxperts LLC"
+ackeeR30.build.board=SAMD_ZERO
+ackeeR30.build.core=arduino
+ackeeR30.build.extra_flags=-D__SAML21G18A__ {build.usb_flags}
+ackeeR30.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+ackeeR30.build.openocdscript=openocd_scripts/arduino_zero.cfg
+ackeeR30.build.variant=ackeeR30
+ackeeR30.build.variant_system_lib=
+ackeeR30.build.vid=0x2341
+ackeeR30.build.pid=0x804d
+ackeeR30.bootloader.tool=openocd
+ackeeR30.bootloader.file=zero/samd21_sam_ba.bin
+
+#  Monterisi (Native USB Port)
+# ---------------------------------------
+monterisi.name=Monterisi (Native USB Port)
+monterisi.vid.0=0x2341
+monterisi.pid.0=0x804d
+monterisi.vid.1=0x2341
+monterisi.pid.1=0x004d
+
+monterisi.vid.2=0x2341
+monterisi.pid.2=0x824d
+# If the board is a 2341:824d use 2341:824d for build and set other parameters as well
+monterisi.vid.2.build.vid=0x2341
+monterisi.vid.2.build.pid=0x824d
+monterisi.vid.2.build.usb_product="Genuino Zero"
+monterisi.vid.2.bootloader.file=zero/samd21_sam_ba_genuino.bin
+
+monterisi.vid.3=0x2341
+monterisi.pid.3=0x024d
+# If the board is a 2341:024d use 2341:824d for build and set other parameters as well
+monterisi.vid.3.build.vid=0x2341
+monterisi.vid.3.build.pid=0x824d
+monterisi.vid.3.build.usb_product="Genuino Zero"
+monterisi.vid.3.bootloader.file=zero/samd21_sam_ba_genuino.bin
+
+monterisi.upload.tool=bossac
+monterisi.upload.protocol=sam-ba
+monterisi.upload.maximum_size=262144
+monterisi.upload.use_1200bps_touch=true
+monterisi.upload.wait_for_upload_port=true
+monterisi.upload.native_usb=true
+monterisi.build.mcu=cortex-m0plus
+monterisi.build.f_cpu=48000000L
+monterisi.build.usb_product="Arduino Zero"
+monterisi.build.usb_manufacturer="Arduino LLC"
+monterisi.build.board=SAMD_ZERO
+monterisi.build.core=arduino
+monterisi.build.extra_flags=-D__SAMD21J18A__ {build.usb_flags}
+monterisi.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+monterisi.build.openocdscript=openocd_scripts/arduino_zero.cfg
+monterisi.build.variant=monterisi
+monterisi.build.variant_system_lib=
+monterisi.build.vid=0x2341
+monterisi.build.pid=0x804d
+monterisi.bootloader.tool=openocd
+monterisi.bootloader.file=zero/samd21_sam_ba.bin
+
+#  Ackee (Native USB Port)
+# ---------------------------------------
+AckeeG.name=AckeeG (Native USB Port)
+AckeeG.vid.0=0x2341
+AckeeG.pid.0=0x804d
+AckeeG.vid.1=0x2341
+AckeeG.pid.1=0x004d
+
+AckeeG.vid.2=0x2341
+AckeeG.pid.2=0x824d
+# If the board is a 2341:824d use 2341:824d for build and set other parameters as well
+AckeeG.vid.2.build.vid=0x2341
+AckeeG.vid.2.build.pid=0x824d
+AckeeG.vid.2.build.usb_product="Genuino Zero"
+AckeeG.vid.2.bootloader.file=zero/samd21_sam_ba_genuino.bin
+
+AckeeG.vid.3=0x2341
+AckeeG.pid.3=0x024d
+# If the board is a 2341:024d use 2341:824d for build and set other parameters as well
+AckeeG.vid.3.build.vid=0x2341
+AckeeG.vid.3.build.pid=0x824d
+AckeeG.vid.3.build.usb_product="Genuino Zero"
+AckeeG.vid.3.bootloader.file=zero/samd21_sam_ba_genuino.bin
+
+AckeeG.upload.tool=bossac
+AckeeG.upload.protocol=sam-ba
+AckeeG.upload.maximum_size=262144
+AckeeG.upload.use_1200bps_touch=true
+AckeeG.upload.wait_for_upload_port=true
+AckeeG.upload.native_usb=true
+AckeeG.build.mcu=cortex-m0plus
+AckeeG.build.f_cpu=48000000L
+AckeeG.build.usb_product="Arduino Zero"
+AckeeG.build.usb_manufacturer="Arduino LLC"
+AckeeG.build.board=SAMD_ZERO
+AckeeG.build.core=arduino
+AckeeG.build.extra_flags=-D__SAMD21J18A__ {build.usb_flags}
+AckeeG.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+AckeeG.build.openocdscript=openocd_scripts/arduino_zero.cfg
+AckeeG.build.variant=AckeeG
+AckeeG.build.variant_system_lib=
+AckeeG.build.vid=0x2341
+AckeeG.build.pid=0x804d
+AckeeG.bootloader.tool=openocd
+AckeeG.bootloader.file=zero/samd21_sam_ba.bin
+
+
