@@ -102,28 +102,28 @@ extern "C"
 #define EN_GPS_VBAT           (3ul)
 #define PWRKEY           (6ul)
 #define GNSS_EN          (7ul)
-#define EN_SIM868_VSIM (8ul)
-#define RF_SYNC          (9ul)
-#define PPS_1             (12ul)
-#define EN_PWR_EXT       (13ul)
-#define SYNC_ALIM        (18ul)
+#define BMIRQSEC          (9ul)
+#define EN_PWR_EXT		(8ul)
+#define INTLIS		(18ul)
 #define EN_RF_GND       (19ul)
 #define LED_BUILTIN		EN_RF_GND
 
 
+#define EN_TINY  (9ul)
+#define NTC  (21ul)
 
 /*
  * Analog pins
  */
-#define PIN_A0               (18ul)
-#define PIN_A1               (19ul)
+#define PIN_A0               (20ul)
+#define PIN_A1               (21ul)
 
 
 
 static const uint8_t A0  = PIN_A0 ;
 static const uint8_t A1  = PIN_A1 ;
 
-#define ADC_RESOLUTION		12
+#define ADC_RESOLUTION		10
 
 /*
  * Serial interfaces
@@ -144,11 +144,12 @@ static const uint8_t A1  = PIN_A1 ;
 #define PAD_SERIAL1_RX       (SERCOM_RX_PAD_1)
 #define PAD_SERIAL1_TX       (UART_TX_PAD_0)
 
-//Serial GSM2
-#define PIN_SERIAL2_RX       (17ul)
-#define PIN_SERIAL2_TX       (16ul)
-#define PAD_SERIAL2_RX       (SERCOM_RX_PAD_1)
-#define PAD_SERIAL2_TX       (UART_TX_PAD_0)
+// #define PIN_SERIAL2_RX       (11ul)
+// #define PIN_SERIAL2_TX       (10ul)
+// #define PAD_SERIAL2_RX       (SERCOM_RX_PAD_1)
+// #define PAD_SERIAL2_TX       (UART_TX_PAD_0)
+
+
 
 
 /*
@@ -169,6 +170,21 @@ static const uint8_t SS1	  = PIN_SPI1_SS ;
 static const uint8_t MOSI1 = PIN_SPI1_MOSI ;
 static const uint8_t MISO1 = PIN_SPI1_MISO ;
 static const uint8_t SCK1  = PIN_SPI1_SCK ;
+
+// #define PIN_SPI2_MOSI        (10ul)
+// #define PIN_SPI2_MISO        (13ul)
+// #define PIN_SPI2_SCK         (11ul)
+// #define PIN_SPI2_SS          (12ul)
+// #define PERIPH_SPI2          sercom3
+// #define PAD_SPI2_TX          SPI_PAD_0_SCK_1
+// #define PAD_SPI2_RX          SERCOM_RX_PAD_3
+
+
+// static const uint8_t SS2	  = PIN_SPI2_SS ;
+// static const uint8_t MOSI2 = PIN_SPI2_MOSI ;
+// static const uint8_t MISO2 = PIN_SPI2_MISO ;
+// static const uint8_t SCK2  = PIN_SPI2_SCK ;
+
 
  // "internal" SPI, used for AT86RF233 only!
 #define PIN_SPI_MISO         (31u)
@@ -196,10 +212,10 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
  */
 #define WIRE_INTERFACES_COUNT 1
 
-#define PIN_WIRE_SDA         (16u)
-#define PIN_WIRE_SCL         (17u)
-#define PERIPH_WIRE          sercom5
-#define WIRE_IT_HANDLER      SERCOM5_Handler
+#define PIN_WIRE_SDA         (10ul)
+#define PIN_WIRE_SCL         (11ul)
+#define PERIPH_WIRE          sercom3
+#define WIRE_IT_HANDLER      SERCOM3_Handler
 
 static const uint8_t SDA = PIN_WIRE_SDA;
 static const uint8_t SCL = PIN_WIRE_SCL;
@@ -237,7 +253,7 @@ extern Uart Serial;
 //GPS No monterisi
 extern Uart Serial1;
 
-extern Uart Serial2;
+// extern Uart Serial2;
 
 #endif
 

@@ -1,6 +1,6 @@
 # Ackee Samr21 Programming
 # ---------------------------------------
-ackee.name=AckeeSamr21 (Programming USB Port)
+ackee.name=AckeeZid (Programming USB Port)
 ackee.vid.0=0x2341
 ackee.pid.0=0x804d
 ackee.vid.1=0x2341
@@ -32,7 +32,7 @@ ackee.build.usb_product="Zquid"
 ackee.build.usb_manufacturer="Qxperts LLC"
 ackee.build.board=SAMD_ZERO
 ackee.build.core=arduino
-ackee.build.extra_flags=-DCRYSTALLESS -D__SAMR21G18A__ {build.usb_flags}
+ackee.build.extra_flags=-D__SAMR21G18A__ {build.usb_flags}
 ackee.build.ldscript=linker_scripts/gcc/flash_without_bootloader.ld
 ackee.build.openocdscript=openocd_scripts/arduino_zero.cfg
 ackee.build.variant=ackee
@@ -178,4 +178,140 @@ AckeeG.build.pid=0x804d
 AckeeG.bootloader.tool=openocd
 AckeeG.bootloader.file=zero/samd21_sam_ba.bin
 
+#  Ackee (Native USB Port)
+# ---------------------------------------
+AckeeG-sim.name=AckeeG SIM868 (bertana Native USB Port)
+AckeeG-sim.vid.0=0x2341
+AckeeG-sim.pid.0=0x804d
+AckeeG-sim.vid.1=0x2341
+AckeeG-sim.pid.1=0x004d
 
+AckeeG-sim.vid.2=0x2341
+AckeeG-sim.pid.2=0x824d
+# If the board is a 2341:824d use 2341:824d for build and set other parameters as well
+AckeeG-sim.vid.2.build.vid=0x2341
+AckeeG-sim.vid.2.build.pid=0x824d
+AckeeG-sim.vid.2.build.usb_product="Genuino Zero"
+AckeeG-sim.vid.2.bootloader.file=zero/samd21_sam_ba_genuino.bin
+
+AckeeG-sim.vid.3=0x2341
+AckeeG-sim.pid.3=0x024d
+# If the board is a 2341:024d use 2341:824d for build and set other parameters as well
+AckeeG-sim.vid.3.build.vid=0x2341
+AckeeG-sim.vid.3.build.pid=0x824d
+AckeeG-sim.vid.3.build.usb_product="Genuino Zero"
+AckeeG-sim.vid.3.bootloader.file=zero/samd21_sam_ba_genuino.bin
+
+AckeeG-sim.upload.tool=bossac
+AckeeG-sim.upload.protocol=sam-ba
+AckeeG-sim.upload.maximum_size=262144
+AckeeG-sim.upload.use_1200bps_touch=true
+AckeeG-sim.upload.wait_for_upload_port=true
+AckeeG-sim.upload.native_usb=true
+AckeeG-sim.build.mcu=cortex-m0plus
+AckeeG-sim.build.f_cpu=48000000L
+AckeeG-sim.build.usb_product="Arduino Zero"
+AckeeG-sim.build.usb_manufacturer="Arduino LLC"
+AckeeG-sim.build.board=SAMD_ZERO
+AckeeG-sim.build.core=arduino
+AckeeG-sim.build.extra_flags=-D__SAMD21J18A__ {build.usb_flags}
+AckeeG-sim.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+AckeeG-sim.build.openocdscript=openocd_scripts/arduino_zero.cfg
+AckeeG-sim.build.variant=AckeeG-sim868
+AckeeG-sim.build.variant_system_lib=
+AckeeG-sim.build.vid=0x2341
+AckeeG-sim.build.pid=0x804d
+AckeeG-sim.bootloader.tool=openocd
+AckeeG-sim.bootloader.file=zero/samd21_sam_ba.bin
+
+#  Ackee (Native USB Port)
+# ---------------------------------------
+AckeeG-sl.name=AckeeG-slave (bertana slave Native USB Port)
+AckeeG-sl.vid.0=0x2341
+AckeeG-sl.pid.0=0x804d
+AckeeG-sl.vid.1=0x2341
+AckeeG-sl.pid.1=0x004d
+
+AckeeG-sl.vid.2=0x2341
+AckeeG-sl.pid.2=0x824d
+# If the board is a 2341:824d use 2341:824d for build and set other parameters as well
+AckeeG-sl.vid.2.build.vid=0x2341
+AckeeG-sl.vid.2.build.pid=0x824d
+AckeeG-sl.vid.2.build.usb_product="Genuino Zero"
+AckeeG-sl.vid.2.bootloader.file=zero/samd21_sam_ba_genuino.bin
+
+AckeeG-sl.vid.3=0x2341
+AckeeG-sl.pid.3=0x024d
+# If the board is a 2341:024d use 2341:824d for build and set other parameters as well
+AckeeG-sl.vid.3.build.vid=0x2341
+AckeeG-sl.vid.3.build.pid=0x824d
+AckeeG-sl.vid.3.build.usb_product="Genuino Zero"
+AckeeG-sl.vid.3.bootloader.file=zero/samd21_sam_ba_genuino.bin
+
+AckeeG-sl.upload.tool=bossac
+AckeeG-sl.upload.protocol=sam-ba
+AckeeG-sl.upload.maximum_size=262144
+AckeeG-sl.upload.use_1200bps_touch=true
+AckeeG-sl.upload.wait_for_upload_port=true
+AckeeG-sl.upload.native_usb=true
+AckeeG-sl.build.mcu=cortex-m0plus
+AckeeG-sl.build.f_cpu=48000000L
+AckeeG-sl.build.usb_product="Arduino Zero"
+AckeeG-sl.build.usb_manufacturer="Arduino LLC"
+AckeeG-sl.build.board=SAMD_ZERO
+AckeeG-sl.build.core=arduino
+AckeeG-sl.build.extra_flags=-D__SAMD21J18A__ {build.usb_flags}
+AckeeG-sl.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+AckeeG-sl.build.openocdscript=openocd_scripts/arduino_zero.cfg
+AckeeG-sl.build.variant=AckeeG-slave
+AckeeG-sl.build.variant_system_lib=
+AckeeG-sl.build.vid=0x2341
+AckeeG-sl.build.pid=0x804d
+AckeeG-sl.bootloader.tool=openocd
+AckeeG-sl.bootloader.file=zero/samd21_sam_ba.bin
+
+#  Ackee (Native USB Port)
+# ---------------------------------------
+AckeeG-icegap.name=AckeeG-icegap (Icegap slave Native USB Port)
+AckeeG-icegap.vid.0=0x2341
+AckeeG-icegap.pid.0=0x804d
+AckeeG-icegap.vid.1=0x2341
+AckeeG-icegap.pid.1=0x004d
+
+AckeeG-icegap.vid.2=0x2341
+AckeeG-icegap.pid.2=0x824d
+# If the board is a 2341:824d use 2341:824d for build and set other parameters as well
+AckeeG-icegap.vid.2.build.vid=0x2341
+AckeeG-icegap.vid.2.build.pid=0x824d
+AckeeG-icegap.vid.2.build.usb_product="Genuino Zero"
+AckeeG-icegap.vid.2.bootloader.file=zero/samd21_sam_ba_genuino.bin
+
+AckeeG-icegap.vid.3=0x2341
+AckeeG-icegap.pid.3=0x024d
+# If the board is a 2341:024d use 2341:824d for build and set other parameters as well
+AckeeG-icegap.vid.3.build.vid=0x2341
+AckeeG-icegap.vid.3.build.pid=0x824d
+AckeeG-icegap.vid.3.build.usb_product="Genuino Zero"
+AckeeG-icegap.vid.3.bootloader.file=zero/samd21_sam_ba_genuino.bin
+
+AckeeG-icegap.upload.tool=bossac
+AckeeG-icegap.upload.protocol=sam-ba
+AckeeG-icegap.upload.maximum_size=262144
+AckeeG-icegap.upload.use_1200bps_touch=true
+AckeeG-icegap.upload.wait_for_upload_port=true
+AckeeG-icegap.upload.native_usb=true
+AckeeG-icegap.build.mcu=cortex-m0plus
+AckeeG-icegap.build.f_cpu=48000000L
+AckeeG-icegap.build.usb_product="Arduino Zero"
+AckeeG-icegap.build.usb_manufacturer="Arduino LLC"
+AckeeG-icegap.build.board=SAMD_ZERO
+AckeeG-icegap.build.core=arduino
+AckeeG-icegap.build.extra_flags=-DCRYSTALLESS -D__SAMD21J18A__ {build.usb_flags}
+AckeeG-icegap.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+AckeeG-icegap.build.openocdscript=openocd_scripts/arduino_zero.cfg
+AckeeG-icegap.build.variant=AckeeG-icegap
+AckeeG-icegap.build.variant_system_lib=
+AckeeG-icegap.build.vid=0x2341
+AckeeG-icegap.build.pid=0x804d
+AckeeG-icegap.bootloader.tool=openocd
+AckeeG-icegap.bootloader.file=zero/samd21_sam_ba.bin

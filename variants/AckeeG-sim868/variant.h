@@ -97,36 +97,42 @@ extern "C"
 // Interrupts
 #define digitalPinToInterrupt(P)   ( g_APinDescription[P].ulExtInt )
 
-// LED(s)
-#define PIN_LED_BLU          (23ul)
-#define PIN_LED_RED          (24ul)
-#define PIN_LED_GREEN        (25ul)
+// LED(s) NO LED DEFINITION 
+//#define PIN_LED_BLU          (23ul)
+//#define PIN_LED_RED          (24ul)
+//#define PIN_LED_GREEN        (25ul)
 
-// MODEM G510
-#define CPU_PWR_G510    (30ul) 
-#define CPU_RST_G510    (31ul)
-#define CPU_WK_G510     (32ul)
-#define UART1_DCD_G510  (33ul)
-#define UART1_RST_G510  (34ul)
-#define  CPU_LPG_G510   (35ul)
-#define  EN_G510VSIM    (36ul) 
+
 
 // RADDIO AT86RF212B
-
+//#define PIN_HGM             (40ul)
 #define PIN_SPI_SLEEP_TR 	(29u)
 #define PIN_SPI_RESET	(28u)
 #define PIN_SPI_IRQ	(26u)	
-#define PIN_HGM             (27u)
+#define SLP_AT86 	(29u)
+#define RST_AT86	(28u)
+#define IRQ_AT86	(26u)	
+
+//EPROM 
+
+#define SPI_EN_16M	(21u)
+ 
+// VARIOUS PINS
+#define EN_REF_GND	(38ul) 
+#define REF_GND_BATT	(39ul)
+#define EN_PWR_EXT	(40ul)
+
+
  
 /*
  * Analog pins
  */
-#define PIN_A0               (38ul)
-#define PIN_A1               (39ul)
-#define PIN_A2               (40ul)
-#define PIN_A3               (41ul)
-#define PIN_A4               (42ul)
-#define PIN_A5               (43ul)
+#define PIN_A0               (32ul)
+#define PIN_A1               (33ul)
+#define PIN_A2               (32ul)
+#define PIN_A3               (33ul)
+#define PIN_A4               (32ul)
+#define PIN_A5               (33ul)
 #define PIN_VBAT             (44ul)
 #define PIN_VREF             (45ul)
 
@@ -139,22 +145,41 @@ static const uint8_t A4  = PIN_A4 ;
 static const uint8_t A5  = PIN_A5 ;
 
 #define ADC_RESOLUTION		12
-
+// GSM SERIAL
 #define PIN_SERIAL_RX       (1ul)
 #define PIN_SERIAL_TX       (0ul)
 #define PAD_SERIAL_RX       (SERCOM_RX_PAD_1)
 #define PAD_SERIAL_TX       (UART_TX_PAD_0)
-
-#define PIN_SERIAL1_RX       (4ul)
-#define PIN_SERIAL1_TX       (2ul)
+// GPS SERIAL
+#define PIN_SERIAL1_RX       (8ul)
+#define PIN_SERIAL1_TX       (6ul)
 #define PAD_SERIAL1_RX       (SERCOM_RX_PAD_1)
 #define PAD_SERIAL1_TX       (UART_TX_PAD_0)
+
+// modem control pin
+#define PWRKEY (37ul)
+#define GNSS_EN (42ul)
+// EXTERNAL PINS
+#define INPUT0 (32ul)
+#define INPUT1 (33ul)
+// LORA IO PINS
+#define LORA_RST (30ul)
+#define LORA_IRQ (31ul)
+#define LORA_DIO1 (34ul)
+#define LORA_DIO2 (23ul)
+#define LORA_DIO3 (24ul)
+#define LORA_DIO4 (25ul)
+#define LORA_DIO5 (43ul)
+// BITBANG
+#define SCL_BITBANG (35ul)
+#define SDA_BITBANG (36ul)
+
 /*
  * SPI Interfaces
  * first interface is radio 
   */
-#define SPI_INTERFACES_COUNT 3
-
+#define SPI_INTERFACES_COUNT 4
+// SPI AT86 
 #define PIN_SPI_MOSI        (14ul)
 #define PIN_SPI_MISO        (15ul)
 #define PIN_SPI_SCK         (16ul)
@@ -163,42 +188,44 @@ static const uint8_t A5  = PIN_A5 ;
 #define PAD_SPI_TX          SPI_PAD_0_SCK_1
 #define PAD_SPI_RX          SERCOM_RX_PAD_3
 
-static const uint8_t SS	  = PIN_SPI_SS ;
+static const uint8_t SS   = PIN_SPI_SS ;
 static const uint8_t MOSI = PIN_SPI_MOSI ;
 static const uint8_t MISO = PIN_SPI_MISO ;
 static const uint8_t SCK  = PIN_SPI_SCK ;
 
-#define PIN_SPI1_MOSI        (6ul)
-#define PIN_SPI1_MISO        (7ul)
-#define PIN_SPI1_SCK         (8ul)
-#define PIN_SPI1_SS          (9ul)
-#define PERIPH_SPI1          sercom2
-#define PAD_SPI1_TX          SPI_PAD_0_SCK_1
-#define PAD_SPI1_RX          SERCOM_RX_PAD_3
+//SPI LORA
+#define PIN_SPI1_MOSI         (10ul)
+#define PIN_SPI1_MISO         (11ul)
+#define PIN_SPI1_SCK          (12ul)
+#define PIN_SPI1_SS           (13ul)
+#define PERIPH_SPI1           sercom3
+#define PAD_SPI1_TX           SPI_PAD_0_SCK_1
+#define PAD_SPI1_RX           SERCOM_RX_PAD_3
 
 static const uint8_t SS1	  = PIN_SPI1_SS ;
 static const uint8_t MOSI1 = PIN_SPI1_MOSI ;
 static const uint8_t MISO1 = PIN_SPI1_MISO ;
 static const uint8_t SCK1  = PIN_SPI1_SCK ;
-
-#define PIN_SPI2_MOSI         (10ul)
-#define PIN_SPI2_MISO         (11ul)
-#define PIN_SPI2_SCK          (12ul)
-#define PIN_SPI2_SS           (13ul)
-#define PERIPH_SPI2           sercom3
+// SPI EXTERNAL
+#define PIN_SPI2_MOSI         (2ul)
+#define PIN_SPI2_MISO         (3ul)
+#define PIN_SPI2_SCK          (4ul)
+#define PIN_SPI2_SS           (5ul)
+#define PERIPH_SPI2           sercom0
 #define PAD_SPI2_TX           SPI_PAD_0_SCK_1
 #define PAD_SPI2_RX           SERCOM_RX_PAD_3
 
-static const uint8_t SS2	  = PIN_SPI2_SS ;
+static const uint8_t SS2   = PIN_SPI2_SS ;
 static const uint8_t MOSI2 = PIN_SPI2_MOSI ;
 static const uint8_t MISO2 = PIN_SPI2_MISO ;
 static const uint8_t SCK2  = PIN_SPI2_SCK ;
-
-/*#define PIN_SPI3_MOSI         (2ul)
-#define PIN_SPI3_MISO         (3ul)
-#define PIN_SPI3_SCK          (4ul)
-#define PIN_SPI3_SS           (5ul)
-#define PERIPH_SPI3           sercom0
+// SPI EPROM 
+#define PIN_SPI3_MOSI         (18ul)
+#define PIN_SPI3_MISO         (19ul)
+#define PIN_SPI3_SCK          (20ul)
+#define PIN_SPI3_SS           (21ul)
+#define PIN_SPI3_SSSEC        (22ul)
+#define PERIPH_SPI3           sercom5
 #define PAD_SPI3_TX           SPI_PAD_0_SCK_1
 #define PAD_SPI3_RX           SERCOM_RX_PAD_3
 
@@ -207,35 +234,18 @@ static const uint8_t MOSI3 = PIN_SPI3_MOSI ;
 static const uint8_t MISO3 = PIN_SPI3_MISO ;
 static const uint8_t SCK3  = PIN_SPI3_SCK ;
 
-#define PIN_SPI4_MOSI         (18ul)
-#define PIN_SPI4_MISO         (19ul)
-#define PIN_SPI4_SCK          (20ul)
-#define PIN_SPI4_SS           (21ul)
-#define PIN_SPI4_SSSEC        (22ul)
-#define PERIPH_SPI4           sercom5
-#define PAD_SPI4_TX           SPI_PAD_0_SCK_1
-#define PAD_SPI4_RX           SERCOM_RX_PAD_3
-
-static const uint8_t SS4   = PIN_SPI4_SS ;
-static const uint8_t MOSI4 = PIN_SPI4_MOSI ;
-static const uint8_t MISO4 = PIN_SPI4_MISO ;
-static const uint8_t SCK4  = PIN_SPI4_SCK ;*/
-
 
 
 
 /*
  * Wire Interfaces
  */
-#define WIRE_INTERFACES_COUNT 0
+#define WIRE_INTERFACES_COUNT 1
 
-/*#define PIN_WIRE_SCL         (12ul)
-#define PIN_WIRE_SDA         (10ul)
+#define PIN_WIRE_SCL         (2ul)
+#define PIN_WIRE_SDA         (4ul)
 #define PERIPH_WIRE          sercom3
 #define WIRE_IT_HANDLER      SERCOM3_Handler
-
-static const uint8_t SDA = PIN_WIRE_SDA;
-static const uint8_t SCL = PIN_WIRE_SCL;*/
 
 /*
  * USB

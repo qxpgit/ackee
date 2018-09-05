@@ -128,6 +128,8 @@ void detachInterrupt(uint32_t pin)
   if (in == NOT_AN_INTERRUPT || in == EXTERNAL_INT_NMI)
     return;
 
+  callbacksInt[in] = NULL;
+  
   EIC->INTENCLR.reg = EIC_INTENCLR_EXTINT(1 << in);
   
   // Disable wakeup capability on pin during sleep

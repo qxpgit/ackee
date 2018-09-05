@@ -59,8 +59,8 @@ const PinDescription g_APinDescription[]=
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  * | 6          |                  |  PA12  | PWRKEY          | 
  * | 7          |                  |  PA13  | GNNS_EN    	  | 
- * | 8          |                  |  PA12  | EN_SIM_868_VISIM| 
- * | 9          |                  |  PA13  | RF_SYNC    	  | 
+ * | 8          |                  |  PA14  | EN_PWR_EXT      | 
+ * | 9          |                  |  PA15  | BMI160IRQ2/output4 	  | 
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  */
    { PORTA,  12, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_12 },
@@ -69,26 +69,18 @@ const PinDescription g_APinDescription[]=
    { PORTA,  15, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_15 },
     /* 
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
- * | Pin number | Serial2          |  PIN   | Label/Name      | Comments (* is for default peripheral in use)
+ * | Pin number | EXT SPI2         |  PIN   | Label/Name      | Comments (* is for default peripheral in use)
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
- * | 10          |                 |  PA16  | TX         	  | EIC/EXTINT[12]                           SERCOM2_ALT/PAD_ *TCC2/WO[0]  TCC0_ALT/WO[6]  AC/CMP[0]
- * | 11          |                 |  PA17  | RX    		  | 
- * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
- */
-    { PORTA, 16, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // TX: SERCOM2/PAD[0]
-	{ PORTA, 17, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_1 }, // RX: SERCOM2/PAD[1]
-    
-    /* 
- * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
- * | Pin number | Digital          |  PIN   | Label/Name      | Comments (* is for default peripheral in use)
- * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
- * | 12          |                  |  PA18  | 1PPS          | 
- * | 13          |                  |  PA19  | EN_PWR_EXT    	  | 
+ * | 10         |                  |  PA16  | MOSI         	  |SERCOM3_ALT/PAD[0]                           SERCOM2_ALT/PAD_ *TCC2/WO[0]  TCC0_ALT/WO[6]  AC/CMP[0]
+ * | 11         |                  |  PA17  | SCK    		  |SERCOM3_ALT/PAD[1] 
+ * | 12         |                  |  PA18  | CS              |SERCOM3_ALT/PAD[2]
+ * | 13         |                  |  PA19  | MISO      	  |SERCOM3_ALT/PAD[3]
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  */
-   
-   { PORTA,  18, PIO_DIGITAL, PIN_ATTR_DIGITAL, ADC_Channel6, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2 },
-   { PORTA,  19, PIO_DIGITAL, PIN_ATTR_DIGITAL, ADC_Channel7, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_3 },
+    { PORTA,  16, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // TX: SERCOM2/PAD[0]
+	{ PORTA,  17, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_1 }, // RX: SERCOM2/PAD[1]
+    { PORTA,  18, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL, ADC_Channel6, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2 },
+    { PORTA,  19, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL, ADC_Channel7, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_3 },
     
   /* +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  * | Pin number | SPI1             |  PIN   | Label/Name      | Comments (* is for default peripheral in use)
@@ -108,8 +100,8 @@ const PinDescription g_APinDescription[]=
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  * | Pin number | Digital          |  PIN   | Label/Name      | Comments (* is for default peripheral in use)
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
- * | 18         |                  |  PA17  | SYNC_ALIM           | 
- * | 19         |                  |  PA28  | EN_REF_GND     | 
+ * | 18         |                  |  PA27  | BMI160INT1      | 
+ * | 19         |                  |  PA28  | EN_REF_GND      | 
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  */
    
@@ -125,8 +117,8 @@ const PinDescription g_APinDescription[]=
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  */
    
-   { PORTB,  2, PIO_ANALOG, PIN_ATTR_ANALOG, ADC_Channel10, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2 },
-   { PORTB,  3, PIO_ANALOG, PIN_ATTR_ANALOG, ADC_Channel11, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2 },
+	{ PORTB, 2, PIO_ANALOG, PIN_ATTR_ANALOG, ADC_Channel10, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2 },  
+	{ PORTB, 3, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_3 }, 
    
    /* 
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
@@ -198,9 +190,9 @@ void SERCOM2_Handler(void)
   Serial1.IrqHandler();
 }
 
-Uart Serial2( &sercom3, PIN_SERIAL2_RX, PIN_SERIAL2_TX, PAD_SERIAL2_RX, PAD_SERIAL2_TX ) ;
+/* Uart Serial2( &sercom3, PIN_SERIAL2_RX, PIN_SERIAL2_TX, PAD_SERIAL2_RX, PAD_SERIAL2_TX ) ;
 
 void SERCOM3_Handler(void)
 {
   Serial2.IrqHandler();
-}
+} */
